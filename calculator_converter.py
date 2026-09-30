@@ -8,35 +8,45 @@ while True:
     print("6. Celsius to Fahrenheit")
     print("7. Exit")
     choice = input("Enter your choice: ")
-    if choice == "1":
-        a = float(input("Enter first number: "))
-        b = float(input("Enter second number: "))
-        print("Result:", a + b)
-    elif choice == "2":
-        a = float(input("Enter first number: "))
-        b = float(input("Enter second number: "))
-        print("Result:", a - b)
-    elif choice == "3":
-        a = float(input("Enter first number: "))
-        b = float(input("Enter second number: "))
-        print("Result:", a * b)
-    elif choice == "4":
-        a = float(input("Enter first number: "))
-        b = float(input("Enter second number: "))
-        if b == 0:
-            print("Cannot divide by zero!")
-        else:
-            print("Result:", a / b)
+    if choice == "7":
+        print("Thank you! Goodbye!")
+        break
+    elif choice in ["1", "2", "3", "4"]:
+        while True:
+            try:
+                a = float(input("Enter first number: "))
+                b = float(input("Enter second number: "))
+                break
+            except ValueError:
+                print("Invalid input! Please enter numbers only.")
+        if choice == "1":
+            print("Result:", a + b)
+        elif choice == "2":
+            print("Result:", a - b)
+        elif choice == "3":
+            print("Result:", a * b)
+        elif choice == "4":
+            if b == 0:
+                print("Cannot divide by zero!")
+            else:
+                print("Result:", a / b)
     elif choice == "5":
-        km = float(input("Enter kilometers: "))
+        while True:
+            try:
+                km = float(input("Enter kilometers: "))
+                break
+            except ValueError:
+                print("Invalid input! Please enter a number.")
         miles = km * 0.621371
         print("Miles:", miles)
     elif choice == "6":
-        celsius = float(input("Enter temperature in Celsius: "))
+        while True:
+            try:
+                celsius = float(input("Enter temperature in Celsius: "))
+                break
+            except ValueError:
+                print("Invalid input! Please enter a number.")
         fahrenheit = (celsius * 9 / 5) + 32
         print("Fahrenheit:", fahrenheit)
-    elif choice == "7":
-        print("Thank you! Goodbye!")
-        break
     else:
         print("Invalid choice! Please select 1-7.")
